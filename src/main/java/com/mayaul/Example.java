@@ -1,5 +1,6 @@
 package com.mayaul;
 
+import com.mayaul.listener.MyListener;
 import com.mayaul.service.HelloMessageService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -21,8 +22,11 @@ public class Example {
         return helloMessageService.getMessage();
     }
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Example.class, args);
+    public static void main(String[] args) {
+        SpringApplication springApplication = new SpringApplication(Example.class);
+        springApplication.addListeners(new MyListener());
+        springApplication.run(args);
+//        SpringApplication.run(Example.class, args);
     }
 
 }
