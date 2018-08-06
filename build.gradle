@@ -16,7 +16,17 @@ repositories {
 }
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-aop")
+    compile("org.projectlombok:lombok:1.18.0")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-devtools")
     testCompile("org.springframework.boot:spring-boot-starter-test")
+}
+
+configurations {
+    all*.exclude group: 'commons-logging', module: 'commons-logging' // replaced with jcl-over-slf4j
+    all*.exclude group: 'log4j', module: 'log4j' // replaced with log4j-over-slf4j
+
+    all*.exclude module: 'hsqldb'
+    all*.exclude module: 'slf4j-log4j12'
 }

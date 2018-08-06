@@ -1,0 +1,10 @@
+logging:
+  level:
+    org.springframework: INFO
+    in.woowa: DEBUG
+    org.hibernate:
+      SQL: debug
+      tool.hbm2ddl: debug
+      type: trace
+      stat: debug
+      type.BasicTypeRegistry: warn
